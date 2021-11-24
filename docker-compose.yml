@@ -37,9 +37,13 @@ services:
         target: /usr/share/logstash/config/logstash.yml
         read_only: true
       - type: bind
-        source: ./logstash/pipeline
-        target: /usr/share/logstash/pipeline
+        source: ./logstash/pipeline/logstash.conf
+        target: /usr/share/logstash/pipeline/logstash.conf
         read_only: true
+      - type: bind
+        source: ./logstash/FirstTest.csv
+        target: /usr/share/logstash/FirstTest.csv
+        read_only: false
     ports:
       - "5044:5044"
       - "5000:5000/tcp"
