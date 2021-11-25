@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "preLaunchTask": "DockerComposeUp",
+            "name": "Open Kibana in Chrome",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:5601"
+        }
+    ]
+}
