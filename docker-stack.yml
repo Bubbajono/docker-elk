@@ -39,6 +39,8 @@ services:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     networks:
       - elk
+      - host
+      - minikube
     deploy:
       mode: replicated
       replicas: 1
@@ -57,7 +59,6 @@ services:
       replicas: 1
 
 configs:
-
   elastic_config:
     file: ./elasticsearch/config/elasticsearch.yml
   logstash_config:

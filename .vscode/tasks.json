@@ -2,13 +2,52 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "DockerComposeRefresh",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "DockerComposeDown",
+                "DockerComposeBuild",
+                "DockerComposeUp"
+            ]
+        },
+        {
+            "label": "DockerComposeBuild",
+            "type": "shell",
+            "command": "docker-compose",
+            "args": [
+                "build",
+                "--no-cache"
+            ],
+            "presentation": {
+                "clear": true,
+                "close": true
+            },
+        },
+        {
+            "label": "DockerComposeDown",
+            "type": "shell",
+            "command": "docker-compose",
+            "args": [
+                "down",
+                "-v"
+            ],
+            "presentation": {
+                "clear": true,
+                "close": true
+            },
+        },
+        {
             "label": "DockerComposeUp",
             "type": "shell",
             "command": "docker-compose",
             "args": [
                 "up",
                 "-d"
-            ]
+            ],
+            "presentation": {
+                "clear": true,
+                "close": true
+            },
         }
     ]
 }
